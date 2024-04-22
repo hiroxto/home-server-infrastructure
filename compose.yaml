@@ -1,8 +1,5 @@
 services:
   mirakurun:
-    build:
-      context: ../
-      dockerfile: docker/Dockerfile
     image: chinachu/mirakurun:latest
     cap_add:
       - SYS_ADMIN
