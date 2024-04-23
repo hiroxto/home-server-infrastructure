@@ -8,6 +8,7 @@ services:
       TZ: Asia/Tokyo
       # LOG_LEVEL: "3"
       # DEBUG: "true"
+    network_mode: host
     ports:
       - ${MIRAKURUN_ADMIN_PORT:-40772}:40772
       - ${MIRAKURUN_PORT:-9229}:9229
@@ -30,6 +31,7 @@ services:
     build:
       context: .
       dockerfile: docker/nginx/Dockerfile
+    network_mode: host
     ports:
       - 8080:8080
     volumes:
