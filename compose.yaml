@@ -6,6 +6,7 @@ services:
       - SYS_NICE
     environment:
       TZ: Asia/Tokyo
+      DOCKER_NETWORK: host
       # LOG_LEVEL: "3"
       # DEBUG: "true"
     network_mode: host
