@@ -1,0 +1,9 @@
+# Mirakurun
+mirakurun/conf/*
+mirakurun/data/*
+
+# EPGStation
+epgstation/config/*
+epgstation/data/*
+epgstation/logs/*
+epgstation/thumbnail/*
