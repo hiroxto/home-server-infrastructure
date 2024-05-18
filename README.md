@@ -1,3 +1,3 @@
-# dtv-infrastructure
+# home-server-infrastructure
 
-TV視聴のインフラ。
+自宅サーバーのインフラ。
