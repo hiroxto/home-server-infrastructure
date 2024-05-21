@@ -1,0 +1,5 @@
+logs:
+  # pm2 関連のログ
+  # TODO EPGStation を Docker 管理にしたら修正
+  - name: pm2 logs
+    file: /host/home/hiroxto/.pm2/logs/*
