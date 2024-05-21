@@ -61,6 +61,8 @@ services:
       DOCKER_NETWORK: host
       NRIA_LICENSE_KEY: ${NRIA_LICENSE_KEY}
     network_mode: host
+    pid: host
+    privileged: true
     volumes:
       - type: bind
         source: /
