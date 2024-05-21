@@ -51,3 +51,30 @@ services:
       options:
         max-file: "1"
         max-size: 10m
+
+  newrelic:
+    image: newrelic/infrastructure:latest
+    cap_add:
+      - SYS_PTRACE
+    environment:
+      TZ: Asia/Tokyo
+      DOCKER_NETWORK: host
+      NRIA_LICENSE_KEY: ${NRIA_LICENSE_KEY}
+    network_mode: host
+    volumes:
+      - type: bind
+        source: /
+        target: /host
+        read_only: true
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+      - type: bind
+        source: ./newrelic/newrelic-infra
+        target: /etc/newrelic-infra
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-file: "1"
+        max-size: 10m
