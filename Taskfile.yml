@@ -10,22 +10,29 @@ tasks:
     cmd: task --list --sort none
 
   build:
+    desc: "Dockerイメージをビルドする"
     cmd: docker compose build
 
   ps:
+    desc: "Dockerコンテナの状態を表示する"
     cmd: docker compose ps
 
   up:
+    desc: "Dockerコンテナを起動する"
     cmd: docker compose up -d
 
   down:
+    desc: "Dockerコンテナを停止する"
     cmd: docker compose down -d
 
   restart:
+    desc: "Dockerコンテナを再起動する"
     cmd: docker compose restart
 
   restart:nginx:
+    desc: "NginxのDockerコンテナを再起動する"
     cmd: docker compose restart nginx
 
   logs:
+    desc: "Dockerコンテナのログを表示する"
     cmd: docker compose logs -f
