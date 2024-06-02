@@ -1,0 +1,23 @@
+version: '3'
+
+tasks:
+  build:
+    cmd: docker compose build
+
+  ps:
+    cmd: docker compose ps
+
+  up:
+    cmd: docker compose up -d
+
+  down:
+    cmd: docker compose down -d
+
+  restart:
+    cmd: docker compose restart
+
+  restart:nginx:
+    cmd: docker compose restart nginx
+
+  logs:
+    cmd: docker compose logs -f
