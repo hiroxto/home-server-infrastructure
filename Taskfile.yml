@@ -1,6 +1,14 @@
 version: '3'
 
 tasks:
+  default:
+    deps:
+      - help
+
+  help:
+    desc: "ヘルプを表示する"
+    cmd: task --list --sort none
+
   build:
     cmd: docker compose build
 
