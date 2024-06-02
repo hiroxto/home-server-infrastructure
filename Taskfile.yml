@@ -9,6 +9,22 @@ tasks:
     desc: "ヘルプを表示する"
     cmd: task --list --sort none
 
+  #
+  # 初期化系
+  #
+  init:
+    desc: "Dockerコンテナを初期設定する"
+    cmds:
+      - task: dotenv
+      - task: build
+
+  dotenv:
+    desc: ".envファイルを作成する"
+    cmd: test -f .env || cp .env.example .env
+
+  #
+  # コンテナ操作系
+  #
   build:
     desc: "Dockerイメージをビルドする"
     cmd: docker compose build
