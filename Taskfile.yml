@@ -1,0 +1,54 @@
+version: '3'
+
+tasks:
+  default:
+    deps:
+      - help
+
+  help:
+    desc: "ヘルプを表示する"
+    cmd: task --list --sort none
+
+  #
+  # 初期化系
+  #
+  init:
+    desc: "Dockerコンテナを初期設定する"
+    cmds:
+      - task: dotenv
+      - task: build
+
+  dotenv:
+    desc: ".envファイルを作成する"
+    cmd: test -f .env || cp .env.example .env
+
+  #
+  # コンテナ操作系
+  #
+  build:
+    desc: "Dockerイメージをビルドする"
+    cmd: docker compose build
+
+  ps:
+    desc: "Dockerコンテナの状態を表示する"
+    cmd: docker compose ps
+
+  up:
+    desc: "Dockerコンテナを起動する"
+    cmd: docker compose up -d
+
+  down:
+    desc: "Dockerコンテナを停止する"
+    cmd: docker compose down -d
+
+  restart:
+    desc: "Dockerコンテナを再起動する"
+    cmd: docker compose restart
+
+  restart:nginx:
+    desc: "NginxのDockerコンテナを再起動する"
+    cmd: docker compose restart nginx
+
+  logs:
+    desc: "Dockerコンテナのログを表示する"
+    cmd: docker compose logs -f
