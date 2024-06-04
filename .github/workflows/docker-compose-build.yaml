@@ -2,6 +2,9 @@ name: Docker Compose build
 
 on:
   pull_request:
+    paths:
+      - "docker/**"
+      - "compose.yaml"
 
 jobs:
   test:
