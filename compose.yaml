@@ -52,6 +52,26 @@ services:
         max-file: "1"
         max-size: 10m
 
+  mysql:
+    image: mysql:8.4.0
+    network_mode: host
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-db:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    environment:
+      MYSQL_USER: epgstation_user
+      MYSQL_PASSWORD: epgstation_passwd
+      MYSQL_ROOT_PASSWORD: epgstation_root_passwd
+      MYSQL_DATABASE: epgstation
+      TZ: "Asia/Tokyo"
+    restart: always
+    logging:
+      options:
+        max-file: "3"
+        max-size: 10m
+
   newrelic:
     image: newrelic/infrastructure:latest
     cap_add:
@@ -80,3 +100,7 @@ services:
       options:
         max-file: "1"
         max-size: 10m
+
+volumes:
+  mysql-db:
+    driver: local
