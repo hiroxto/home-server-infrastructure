@@ -72,6 +72,33 @@ services:
         max-file: "3"
         max-size: 10m
 
+  epgstation:
+    build:
+      context: .
+      dockerfile: docker/epgstation/Dockerfile
+    network_mode: host
+    ports:
+      - 8888:8888
+      - 8889:8889
+    volumes:
+      - ./epgstation/config:/app/config
+      - ./epgstation/extra:/extra
+      - /mnt/dtv/data:/app/data
+      - /mnt/dtv/thumbnail:/app/thumbnail
+      - /mnt/dtv/logs:/app/logs
+      - /mnt/dtv/recorded:/app/recorded
+    environment:
+      TZ: "Asia/Tokyo"
+    depends_on:
+      - mirakurun
+      - mysql
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-file: "3"
+        max-size: 10m
+
   newrelic:
     image: newrelic/infrastructure:latest
     cap_add:
