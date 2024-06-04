@@ -99,6 +99,18 @@ services:
         max-file: "3"
         max-size: 10m
 
+  cloudflared:
+    image: cloudflare/cloudflared
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN}
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-file: "1"
+        max-size: 10m
+
   newrelic:
     image: newrelic/infrastructure:latest
     cap_add:
