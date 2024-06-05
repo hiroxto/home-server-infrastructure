@@ -17,18 +17,8 @@ services:
       - /dev/bus:/dev/bus
       - /dev/dvb:/dev/dvb
     volumes:
-      - type: bind
-        source: /opt/mirakurun/run/
-        target: /var/run/
-      - type: bind
-        source: /opt/mirakurun/opt/
-        target: /opt/
-      - type: bind
-        source: /opt/mirakurun/config/
-        target: /app-config/
-      - type: bind
-        source: /opt/mirakurun/data/
-        target: /app-data/
+      - ./mirakurun/conf:/app-config
+      - ./mirakurun/data:/app-data
     restart: always
     logging:
       driver: json-file
