@@ -16,5 +16,14 @@ jobs:
       - name: Install Task
         uses: arduino/setup-task@v2
 
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./docker/epgstation/Dockerfile
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
       - name: Check task build
         run: task build
