@@ -17,18 +17,8 @@ services:
       - /dev/bus:/dev/bus
       - /dev/dvb:/dev/dvb
     volumes:
-      - type: bind
-        source: /opt/mirakurun/run/
-        target: /var/run/
-      - type: bind
-        source: /opt/mirakurun/opt/
-        target: /opt/
-      - type: bind
-        source: /opt/mirakurun/config/
-        target: /app-config/
-      - type: bind
-        source: /opt/mirakurun/data/
-        target: /app-data/
+      - ./mirakurun/conf:/app-config
+      - ./mirakurun/data:/app-data
     restart: always
     logging:
       driver: json-file
@@ -45,6 +35,65 @@ services:
       - 8080:8080
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-file: "1"
+        max-size: 10m
+
+  mysql:
+    image: mysql:8.4.0
+    network_mode: host
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-db:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    environment:
+      MYSQL_USER: epgstation_user
+      MYSQL_PASSWORD: epgstation_passwd
+      MYSQL_ROOT_PASSWORD: epgstation_root_passwd
+      MYSQL_DATABASE: epgstation
+      TZ: "Asia/Tokyo"
+    restart: always
+    logging:
+      options:
+        max-file: "3"
+        max-size: 10m
+
+  epgstation:
+    build:
+      context: .
+      dockerfile: docker/epgstation/Dockerfile
+    network_mode: host
+    ports:
+      - 8888:8888
+      - 8889:8889
+    volumes:
+      - ./epgstation/config:/app/config
+      - ./epgstation/extra:/extra
+      - /mnt/dtv/data:/app/data
+      - /mnt/dtv/thumbnail:/app/thumbnail
+      - /mnt/dtv/logs:/app/logs
+      - /mnt/dtv/recorded:/app/recorded
+    environment:
+      TZ: "Asia/Tokyo"
+    depends_on:
+      - mirakurun
+      - mysql
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-file: "3"
+        max-size: 10m
+
+  cloudflared:
+    image: cloudflare/cloudflared
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN}
     restart: always
     logging:
       driver: json-file
@@ -80,3 +129,7 @@ services:
       options:
         max-file: "1"
         max-size: 10m
+
+volumes:
+  mysql-db:
+    driver: local
