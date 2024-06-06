@@ -94,6 +94,7 @@ services:
     command: tunnel --no-autoupdate run
     environment:
       TUNNEL_TOKEN: ${TUNNEL_TOKEN}
+    network_mode: host
     restart: always
     logging:
       driver: json-file
