@@ -39,7 +39,7 @@ tasks:
 
   down:
     desc: "Dockerコンテナを停止する"
-    cmd: docker compose down -d
+    cmd: docker compose down
 
   restart:
     desc: "Dockerコンテナを再起動する"
