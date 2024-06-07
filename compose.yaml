@@ -74,6 +74,7 @@ services:
       - ./epgstation/config:/app/config
       - ./epgstation/extra:/extra
       - /mnt/dtv/data:/app/data
+      - /mnt/dtv/drop:/app/drop
       - /mnt/dtv/thumbnail:/app/thumbnail
       - /mnt/dtv/logs:/app/logs
       - /mnt/dtv/recorded:/app/recorded
