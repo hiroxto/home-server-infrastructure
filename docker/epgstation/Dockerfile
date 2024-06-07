@@ -37,7 +37,8 @@ RUN apt-get update && \
     && \
     make -j$(nproc) && \
     make install && \
-\
+# timezone
+    apt-get install -y tzdata && \
 # Cleanup
     apt-get -y remove $DEV && \
     apt-get autoremove -y && \
