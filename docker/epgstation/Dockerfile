@@ -41,6 +41,7 @@ RUN apt-get update && \
     make install && \
 # timezone
     apt-get install -y tzdata && \
+    cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
 # Cleanup
     apt-get -y remove $DEV && \
     apt-get autoremove -y && \
