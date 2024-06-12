@@ -73,11 +73,11 @@ services:
     volumes:
       - ./epgstation/config:/app/config
       - ./epgstation/extra:/extra
-      - /mnt/dtv/data:/app/data
-      - /mnt/dtv/drop:/app/drop
-      - /mnt/dtv/thumbnail:/app/thumbnail
-      - /mnt/dtv/logs:/app/logs
-      - /mnt/dtv/recorded:/app/recorded
+      - /mnt/dtv/epgstation/data:/app/data
+      - /mnt/dtv/epgstation/drop:/app/drop
+      - /mnt/dtv/epgstation/thumbnail:/app/thumbnail
+      - /mnt/dtv/epgstation/logs:/app/logs
+      - /mnt/dtv/epgstation/recorded:/app/recorded
     environment:
       TZ: "Asia/Tokyo"
     depends_on:
