@@ -17,8 +17,8 @@ services:
       - /dev/bus:/dev/bus
       - /dev/dvb:/dev/dvb
     volumes:
-      - ./mirakurun/conf:/app-config
-      - ./mirakurun/data:/app-data
+      - /mnt/dtv/mirakurun/conf:/app-config
+      - /mnt/dtv/mirakurun/data:/app-data
     restart: always
     logging:
       driver: json-file
