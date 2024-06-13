@@ -45,6 +45,10 @@ tasks:
     desc: "Dockerコンテナを再起動する"
     cmd: docker compose restart {{.CLI_ARGS}}
 
+  log:
+    desc: "Dockerコンテナのログを表示する"
+    cmd: docker compose logs {{.CLI_ARGS}}
+
   logs:
     desc: "Dockerコンテナのログを表示する (-fオプション付き)"
     cmd: docker compose logs -f {{.CLI_ARGS}}
