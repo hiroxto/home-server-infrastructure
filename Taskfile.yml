@@ -52,3 +52,7 @@ tasks:
   logs:
     desc: "Dockerコンテナのログを表示する (-fオプション付き)"
     cmd: docker compose logs -f {{.CLI_ARGS}}
+
+  sh:epgstation:
+    desc: "EPGStationのコンテナのシェルに入る"
+    cmd: docker compose exec epgstation sh {{.CLI_ARGS}}
