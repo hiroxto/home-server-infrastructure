@@ -27,40 +27,36 @@ tasks:
   #
   build:
     desc: "Dockerイメージをビルドする"
-    cmd: docker compose build
+    cmd: docker compose build {{.CLI_ARGS}}
 
   ps:
     desc: "Dockerコンテナの状態を表示する"
-    cmd: docker compose ps
+    cmd: docker compose ps {{.CLI_ARGS}}
 
   up:
     desc: "Dockerコンテナを起動する"
-    cmd: docker compose up -d
+    cmd: docker compose up -d {{.CLI_ARGS}}
 
   down:
     desc: "Dockerコンテナを停止する"
-    cmd: docker compose down
+    cmd: docker compose down {{.CLI_ARGS}}
 
   restart:
     desc: "Dockerコンテナを再起動する"
-    cmd: docker compose restart
+    cmd: docker compose restart {{.CLI_ARGS}}
 
-  restart:mirakurun:
-    desc: "MirakurunのDockerコンテナを再起動する"
-    cmd: docker compose restart mirakurun
-
-  restart:nginx:
-    desc: "NginxのDockerコンテナを再起動する"
-    cmd: docker compose restart nginx
-
-  restart:epgstation:
-    desc: "EPGStationのDockerコンテナを再起動する"
-    cmd: docker compose restart epgstation
-
-  restart:cloudflared:
-    desc: "CloudflaredのDockerコンテナを再起動する"
-    cmd: docker compose restart cloudflared
+  log:
+    desc: "Dockerコンテナのログを表示する"
+    cmd: docker compose logs {{.CLI_ARGS}}
 
   logs:
-    desc: "Dockerコンテナのログを表示する"
-    cmd: docker compose logs -f
+    desc: "Dockerコンテナのログを表示する (-fオプション付き)"
+    cmd: docker compose logs -f {{.CLI_ARGS}}
+
+  sh:epgstation:
+    desc: "EPGStationのコンテナのシェルに入る"
+    cmd: docker compose exec epgstation sh {{.CLI_ARGS}}
+
+  mysql:
+    desc: "MySQLにログイン"
+    cmd: docker compose exec mysql mysql -u epgstation_user -pepgstation_passwd epgstation {{.CLI_ARGS}}
