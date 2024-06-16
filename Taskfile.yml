@@ -60,3 +60,15 @@ tasks:
   mysql:
     desc: "MySQLにログイン"
     cmd: docker compose exec mysql mysql -u epgstation_user -pepgstation_passwd epgstation {{.CLI_ARGS}}
+
+  #
+  # バックアップ系
+  #
+  backup:
+    desc: "各サービスをバックアップする"
+    cmds:
+      - task: backup:epgstation
+
+  backup:epgstation:
+    desc: "EPGStationをバックアップする"
+    cmd: docker compose run --rm -it epgstation run backup /backup/epgstation-db.json
