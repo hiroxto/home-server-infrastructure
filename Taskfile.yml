@@ -16,6 +16,7 @@ tasks:
     desc: "Dockerコンテナを初期設定する"
     cmds:
       - task: dotenv
+      - task: pull
       - task: build
 
   dotenv:
