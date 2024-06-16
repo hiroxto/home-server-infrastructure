@@ -71,6 +71,7 @@ services:
     volumes:
       - ./epgstation/config:/app/config
       - ./epgstation/extra:/extra
+      - /mnt/dtv/epgstation/backup:/app/backup
       - /mnt/dtv/epgstation/data:/app/data
       - /mnt/dtv/epgstation/drop:/app/drop
       - /mnt/dtv/epgstation/thumbnail:/app/thumbnail
