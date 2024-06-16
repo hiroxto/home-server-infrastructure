@@ -91,7 +91,7 @@ services:
         max-size: 10m
 
   cloudflared:
-    image: cloudflare/cloudflared
+    image: cloudflare/cloudflared:2024.6.0
     command: tunnel --no-autoupdate run
     environment:
       TUNNEL_TOKEN: ${TUNNEL_TOKEN}
@@ -104,7 +104,7 @@ services:
         max-size: 10m
 
   newrelic:
-    image: newrelic/infrastructure:latest
+    image: newrelic/infrastructure:1.52.3
     cap_add:
       - SYS_PTRACE
     environment:
