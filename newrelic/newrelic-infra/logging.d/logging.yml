@@ -1,5 +1,9 @@
 logs:
-  # pm2 関連のログ
-  # TODO EPGStation を Docker 管理にしたら修正
-  - name: pm2 logs
-    file: /host/home/hiroxto/.pm2/logs/*
+  - name: EPGStation EPGUpdater logs
+    file: /mnt/dtv/epgstation/logs/EPGUpdater/*.log
+
+  - name: EPGStation Operator logs
+    file: /mnt/dtv/epgstation/logs/Operator/*.log
+
+  - name: EPGStation Service logs
+    file: /mnt/dtv/epgstation/logs/Service/*.log
