@@ -61,9 +61,7 @@ services:
         max-size: 10m
 
   epgstation:
-    build:
-      context: .
-      dockerfile: docker/epgstation/Dockerfile
+    image: ghcr.io/hiroxto/home-srv-epgstation:sha-125e54b
     network_mode: host
     ports:
       - 8888:8888
