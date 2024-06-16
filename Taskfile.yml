@@ -29,6 +29,10 @@ tasks:
     desc: "Dockerイメージをビルドする"
     cmd: docker compose build {{.CLI_ARGS}}
 
+  pull:
+    desc: "Dockerイメージを取得ビルドする"
+    cmd: docker compose pull {{.CLI_ARGS}}
+
   ps:
     desc: "Dockerコンテナの状態を表示する"
     cmd: docker compose ps {{.CLI_ARGS}}
