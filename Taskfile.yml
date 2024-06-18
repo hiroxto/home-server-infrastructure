@@ -16,6 +16,7 @@ tasks:
     desc: "Dockerコンテナを初期設定する"
     cmds:
       - task: dotenv
+      - task: pull
       - task: build
 
   dotenv:
@@ -28,6 +29,10 @@ tasks:
   build:
     desc: "Dockerイメージをビルドする"
     cmd: docker compose build {{.CLI_ARGS}}
+
+  pull:
+    desc: "Dockerイメージを取得ビルドする"
+    cmd: docker compose pull {{.CLI_ARGS}}
 
   ps:
     desc: "Dockerコンテナの状態を表示する"
