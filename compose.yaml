@@ -101,7 +101,7 @@ services:
         max-size: 10m
 
   newrelic:
-    image: newrelic/infrastructure:1.52.3
+    image: newrelic/infrastructure:1.53.0
     cap_add:
       - SYS_PTRACE
     environment:
