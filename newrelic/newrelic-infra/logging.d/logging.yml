@@ -1,9 +1,0 @@
-logs:
-  - name: EPGStation EPGUpdater logs
-    file: /mnt/dtv/epgstation/logs/EPGUpdater/*.log
-
-  - name: EPGStation Operator logs
-    file: /mnt/dtv/epgstation/logs/Operator/*.log
-
-  - name: EPGStation Service logs
-    file: /mnt/dtv/epgstation/logs/Service/*.log
