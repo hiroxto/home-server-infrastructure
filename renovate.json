@@ -4,5 +4,11 @@
         "github>hiroxto/renovate-config",
         "github>hiroxto/renovate-config:reviewer",
         "github>hiroxto/renovate-config:scheduleDaily"
-    ]
+    ],
+    "dockerfile": {
+        "pinDigests": true
+    },
+    "docker-compose": {
+        "pinDigests": true
+    }
 }
