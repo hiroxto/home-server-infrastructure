@@ -1,6 +1,6 @@
 services:
   mirakurun:
-    image: chinachu/mirakurun:3.8.0
+    image: chinachu/mirakurun:3.8.0@sha256:fef4a2c326bf979caccfffde3bde102a60359866f55cf0ff8681bda788d76868
     cap_add:
       - SYS_ADMIN
       - SYS_NICE
@@ -27,7 +27,7 @@ services:
         max-size: 10m
 
   nginx:
-    image: nginx:1.27.0
+    image: nginx:1.27.0@sha256:9c367186df9a6b18c6735357b8eb7f407347e84aea09beb184961cb83543d46e
     network_mode: host
     ports:
       - 8080:8080
@@ -41,7 +41,7 @@ services:
         max-size: 10m
 
   mysql:
-    image: mysql:8.4.0
+    image: mysql:8.4.0@sha256:dab7049abafe3a0e12cbe5e49050cf149881c0cd9665c289e5808b9dad39c9e0
     network_mode: host
     ports:
       - 3306:3306
@@ -61,7 +61,7 @@ services:
         max-size: 10m
 
   epgstation:
-    image: ghcr.io/hiroxto/epgstation:sha-eedf3e3
+    image: ghcr.io/hiroxto/epgstation:sha-eedf3e3@sha256:2b4f38dcafddad98c91eecc5bb9e2fdb39dde59cf48992f6efbc156661e44ade
     network_mode: host
     ports:
       - 8888:8888
