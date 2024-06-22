@@ -5,10 +5,16 @@
         "github>hiroxto/renovate-config:reviewer",
         "github>hiroxto/renovate-config:scheduleDaily"
     ],
-    "dockerfile": {
-        "pinDigests": true
-    },
-    "docker-compose": {
-        "pinDigests": true
-    }
+    "packageRules": [
+        {
+            "matchPackagePrefixes": [
+                "ghcr.io/hiroxto/"
+            ],
+            "matchDatasources": [
+                "docker",
+                "docker-compose"
+            ],
+            "pinDigests": true
+        }
+    ]
 }
