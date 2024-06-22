@@ -17,6 +17,7 @@ services:
       - /dev/bus:/dev/bus
       - /dev/dvb:/dev/dvb
     volumes:
+      - ./mirakurun/extra:/extra
       - /mnt/dtv/mirakurun/conf:/app-config
       - /mnt/dtv/mirakurun/data:/app-data
     restart: always
