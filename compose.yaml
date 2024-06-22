@@ -47,7 +47,7 @@ services:
       - 3306:3306
     volumes:
       - mysql-db:/var/lib/mysql
-      - ./mysql/conf.d:/etc/mysql/conf.d
+      - ./mysql/conf.d:/etc/mysql/conf.d:cached
     environment:
       MYSQL_USER: epgstation_user
       MYSQL_PASSWORD: epgstation_passwd
