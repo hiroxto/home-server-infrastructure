@@ -62,6 +62,14 @@ tasks:
     desc: "EPGStationのコンテナのシェルに入る"
     cmd: docker compose exec epgstation sh {{.CLI_ARGS}}
 
+  sh:mirakurun:
+    desc: "Mirakurunのコンテナのシェルに入る"
+    cmd: docker compose exec mirakurun sh {{.CLI_ARGS}}
+
+  sh:nginx:
+    desc: "Mirakurunのコンテナのシェルに入る"
+    cmd: docker compose exec nginx sh {{.CLI_ARGS}}
+
   mysql:
     desc: "MySQLにログイン"
     cmd: docker compose exec mysql mysql -u epgstation_user -pepgstation_passwd epgstation {{.CLI_ARGS}}
