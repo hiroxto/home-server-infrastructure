@@ -62,7 +62,7 @@ services:
         max-size: 10m
 
   epgstation:
-    image: ghcr.io/hiroxto/epgstation:latest@sha256:2b4f38dcafddad98c91eecc5bb9e2fdb39dde59cf48992f6efbc156661e44ade
+    image: ghcr.io/hiroxto/epgstation:latest@sha256:f1e177fe5ac6a75b98e4400264bac009175440a380e0387bfab2ac030940f2cd
     network_mode: host
     ports:
       - 8888:8888
