@@ -13,4 +13,7 @@ epgstation/extra/*
 epgstation/logs/*
 epgstation/thumbnail/*
 
+home-assistant/config/*
+home-assistant/extra/*
+
 !.gitkeep
