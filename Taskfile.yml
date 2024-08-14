@@ -67,7 +67,7 @@ tasks:
     cmd: docker compose exec mirakurun sh {{.CLI_ARGS}}
 
   sh:nginx:
-    desc: "Mirakurunのコンテナのシェルに入る"
+    desc: "Nginxのコンテナのシェルに入る"
     cmd: docker compose exec nginx sh {{.CLI_ARGS}}
 
   mysql:
