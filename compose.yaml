@@ -79,7 +79,6 @@ services:
     environment:
       TZ: "Asia/Tokyo"
     depends_on:
-      - mirakurun
       - mysql
     restart: always
     logging:
