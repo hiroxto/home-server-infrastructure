@@ -88,7 +88,7 @@ services:
         max-size: 10m
 
   home-assistant:
-    image: ghcr.io/home-assistant/home-assistant:2024.9.3
+    image: ghcr.io/home-assistant/home-assistant:2024.10.1
     network_mode: host
     ports:
       - 8123:8123
