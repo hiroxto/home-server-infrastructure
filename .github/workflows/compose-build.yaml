@@ -9,7 +9,7 @@ jobs:
     outputs:
       compose: ${{ steps.filter.outputs.compose }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: dorny/paths-filter@v3
         id: filter
         with:
@@ -24,6 +24,6 @@ jobs:
       - changes
     if: needs.changes.outputs.compose == 'true'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: docker compose config --quiet
       - run: docker compose pull --dry-run
