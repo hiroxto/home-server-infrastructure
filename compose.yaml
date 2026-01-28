@@ -87,6 +87,21 @@ services:
         max-file: "3"
         max-size: 10m
 
+  navidrome:
+    image: deluan/navidrome:0.59.0
+    user: 1000:1000 # should be owner of volumes
+    ports:
+      - 4533:4533
+    restart: unless-stopped
+    environment:
+      TZ: "Asia/Tokyo"
+      # Optional: put your config options customization here. Examples:
+      # ND_LOGLEVEL: debug
+    volumes:
+      - ./navidrome/data:/data
+      - ./navidrome/extra:/extra:cached
+      - /mnt/music:/music:ro
+
 volumes:
   mysql-db:
     driver: local
