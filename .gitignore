@@ -13,4 +13,8 @@ epgstation/extra/*
 epgstation/logs/*
 epgstation/thumbnail/*
 
+# Navidrome
+navidrome/data/*
+navidrome/extra/*
+
 !.gitkeep
