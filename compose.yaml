@@ -1,6 +1,6 @@
 services:
   mirakurun:
-    image: chinachu/mirakurun:3.8.0
+    image: ghcr.io/hiroxto/mirakurun:latest
     cap_add:
       - SYS_ADMIN
       - SYS_NICE
@@ -15,11 +15,18 @@ services:
       - 9229:9229
     devices:
       - /dev/bus:/dev/bus
-      - /dev/dvb:/dev/dvb
+      - /dev/px4video0:/dev/px4video0
+      - /dev/px4video1:/dev/px4video1
+      - /dev/px4video2:/dev/px4video2
+      - /dev/px4video3:/dev/px4video3
+      - /dev/px4video4:/dev/px4video4
+      - /dev/px4video5:/dev/px4video5
+      - /dev/px4video6:/dev/px4video6
+      - /dev/px4video7:/dev/px4video7
     volumes:
       - ./mirakurun/extra:/extra:cached
       - ./mirakurun/conf:/app-config
-      - /mnt/dtv/mirakurun/data:/app-data
+      - ./mirakurun/data:/app-data
     restart: always
     logging:
       driver: json-file
