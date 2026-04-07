@@ -1,6 +1,6 @@
 services:
   mirakurun:
-    image: ghcr.io/hiroxto/mirakurun:latest
+    image: ghcr.io/hiroxto/mirakurun:latest@sha256:f4d2d62b28ff7d31fee03eea2f5015d21935b4056b84d1830db8266f1c9abbe1
     cap_add:
       - SYS_ADMIN
       - SYS_NICE
