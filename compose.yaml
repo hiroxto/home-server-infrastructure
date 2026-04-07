@@ -19,7 +19,7 @@ services:
     volumes:
       - ./mirakurun/extra:/extra:cached
       - ./mirakurun/conf:/app-config
-      - /mnt/dtv/mirakurun/data:/app-data
+      - ./mirakurun/data:/app-data
     restart: always
     logging:
       driver: json-file
