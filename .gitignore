@@ -5,6 +5,7 @@
 # Mirakurun
 mirakurun/conf/*
 mirakurun/data/*
+mirakurun/run/*
 
 # EPGStation
 epgstation/config/*
