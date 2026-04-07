@@ -1,6 +1,6 @@
 services:
   mirakurun:
-    image: chinachu/mirakurun:3.8.0
+    image: ghcr.io/hiroxto/mirakurun:latest
     cap_add:
       - SYS_ADMIN
       - SYS_NICE
