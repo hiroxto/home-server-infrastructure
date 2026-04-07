@@ -24,7 +24,7 @@ services:
       - /dev/px4video6:/dev/px4video6
       - /dev/px4video7:/dev/px4video7
     volumes:
-      - mirakurun-run:/var/run/mirakurun
+      - ./mirakurun/run:/var/run
       - ./mirakurun/extra:/extra:cached
       - ./mirakurun/conf:/app-config
       - ./mirakurun/data:/app-data
@@ -76,7 +76,7 @@ services:
       - 8888:8888
       - 8889:8889
     volumes:
-      - mirakurun-run:/var/run/mirakurun
+      - ./mirakurun/run/mirakurun.sock:/var/run/mirakurun.sock
       - ./epgstation/config:/app/config
       - ./epgstation/extra:/extra:cached
       - /mnt/dtv/epgstation/backup:/backup
@@ -113,6 +113,4 @@ services:
 
 volumes:
   mysql-db:
-    driver: local
-  mirakurun-run:
     driver: local
