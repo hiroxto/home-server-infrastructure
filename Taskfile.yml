@@ -84,4 +84,13 @@ tasks:
 
   backup:epgstation:
     desc: "EPGStationをバックアップする"
-    cmd: docker compose run --rm -it epgstation run backup /backup/epgstation-db.json
+    vars:
+      BACKUP_DATE:
+        sh: date '+%Y-%m-%d_%H:%M'
+      HOST_BACKUP_DIR: /mnt/dtv/backup/epgstation/{{.BACKUP_DATE}}
+      CONTAINER_BACKUP_DIR: /backup/{{.BACKUP_DATE}}
+    cmds:
+      - mkdir -p {{.HOST_BACKUP_DIR}}
+      - docker compose run --rm -it epgstation run backup {{.CONTAINER_BACKUP_DIR}}/epgstation-db.json
+      - cp -a epgstation/config {{.HOST_BACKUP_DIR}}/
+      - cp -a epgstation/extra {{.HOST_BACKUP_DIR}}/
