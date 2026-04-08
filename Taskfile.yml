@@ -58,15 +58,15 @@ tasks:
     desc: "Dockerコンテナのログを表示する (-fオプション付き)"
     cmd: docker compose logs -f {{.CLI_ARGS}}
 
-  sh:epgstation:
+  epgstation:sh:
     desc: "EPGStationのコンテナのシェルに入る"
     cmd: docker compose exec epgstation sh {{.CLI_ARGS}}
 
-  sh:mirakurun:
+  mirakurun:sh:
     desc: "Mirakurunのコンテナのシェルに入る"
     cmd: docker compose exec mirakurun sh {{.CLI_ARGS}}
 
-  sh:nginx:
+  nginx:sh:
     desc: "Nginxのコンテナのシェルに入る"
     cmd: docker compose exec nginx sh {{.CLI_ARGS}}
 
