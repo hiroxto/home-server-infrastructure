@@ -87,7 +87,7 @@ tasks:
     desc: "EPGStationをバックアップする"
     vars:
       BACKUP_DATE:
-        sh: date '+%Y-%m-%d_%H:%M'
+        sh: date '+%Y-%m-%d_%H%M'
       HOST_BACKUP_DIR: /mnt/dtv/backup/epgstation/{{.BACKUP_DATE}}
       CONTAINER_BACKUP_DIR: /backup/{{.BACKUP_DATE}}
     cmds:
@@ -100,7 +100,7 @@ tasks:
     desc: "Mirakurunをバックアップする"
     vars:
       BACKUP_DATE:
-        sh: date '+%Y-%m-%d_%H:%M'
+        sh: date '+%Y-%m-%d_%H%M'
       HOST_BACKUP_DIR: /mnt/dtv/backup/mirakurun/{{.BACKUP_DATE}}
     cmds:
       - mkdir -p {{.HOST_BACKUP_DIR}}
