@@ -81,6 +81,7 @@ tasks:
     desc: "各サービスをバックアップする"
     cmds:
       - task: backup:epgstation
+      - task: backup:mirakurun
 
   backup:epgstation:
     desc: "EPGStationをバックアップする"
@@ -94,3 +95,15 @@ tasks:
       - docker compose run --rm -it epgstation run backup {{.CONTAINER_BACKUP_DIR}}/epgstation-db.json
       - cp -a epgstation/config {{.HOST_BACKUP_DIR}}/
       - cp -a epgstation/extra {{.HOST_BACKUP_DIR}}/
+
+  backup:mirakurun:
+    desc: "Mirakurunをバックアップする"
+    vars:
+      BACKUP_DATE:
+        sh: date '+%Y-%m-%d_%H:%M'
+      HOST_BACKUP_DIR: /mnt/dtv/backup/mirakurun/{{.BACKUP_DATE}}
+    cmds:
+      - mkdir -p {{.HOST_BACKUP_DIR}}
+      - cp -a mirakurun/data {{.HOST_BACKUP_DIR}}/
+      - cp -a mirakurun/conf {{.HOST_BACKUP_DIR}}/
+      - cp -a mirakurun/extra {{.HOST_BACKUP_DIR}}/
