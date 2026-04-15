@@ -14,9 +14,13 @@
         "ghcr.io/hiroxto/"
       ],
       "matchDatasources": [
-        "docker",
-        "docker-compose"
+        "docker"
       ],
+      "matchManagers": [
+        "docker-compose",
+        "dockerfile"
+      ],
+      "minimumReleaseAge": null,
       "pinDigests": true
     }
   ]
