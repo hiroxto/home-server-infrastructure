@@ -15,13 +15,8 @@ tasks:
   init:
     desc: "Dockerコンテナを初期設定する"
     cmds:
-      - task: dotenv
       - task: pull
       - task: build
-
-  dotenv:
-    desc: ".envファイルを作成する"
-    cmd: test -f .env || cp .env.example .env
 
   #
   # コンテナ操作系
