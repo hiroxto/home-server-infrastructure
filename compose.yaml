@@ -1,3 +1,6 @@
+#
+# コンテナで動かしている Nginx からホスト上のサービスを触るため `network_mode: host` で動かす
+#
 services:
   mirakurun:
     image: ghcr.io/hiroxto/mirakurun:latest@sha256:7be9dd5558cd4568379729784a15042aef8b724f82ec76387075360b9ce979c7
