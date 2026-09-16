@@ -38,7 +38,7 @@ services:
         max-size: 10m
 
   nginx:
-    image: nginx:1.31.5
+    image: nginx:1.31.6
     network_mode: host
     ports:
       - 8080:8080
