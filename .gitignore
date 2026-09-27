@@ -17,5 +17,7 @@ epgstation/thumbnail/*
 # Navidrome
 navidrome/data/*
 navidrome/extra/*
+navidrome-music/data/*
+navidrome-music/extra/*
 
 !.gitkeep

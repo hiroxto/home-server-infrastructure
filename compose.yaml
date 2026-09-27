@@ -97,7 +97,7 @@ services:
         max-file: "3"
         max-size: 10m
 
-  navidrome:
+  navidrome-media1:
     image: deluan/navidrome:0.64.0
     user: 1000:1000 # should be owner of volumes
     ports:
@@ -111,6 +111,19 @@ services:
       - ./navidrome/data:/data
       - ./navidrome/extra:/extra:cached
       - /mnt/media1:/music:ro
+
+  navidrome-music:
+    image: deluan/navidrome:0.64.0
+    user: 1000:1000 # should be owner of volumes
+    ports:
+      - 4534:4533
+    restart: unless-stopped
+    environment:
+      TZ: "Asia/Tokyo"
+    volumes:
+      - ./navidrome-music/data:/data
+      - ./navidrome-music/extra:/extra:cached
+      - /music/:/music:ro
 
 volumes:
   mysql-db:
