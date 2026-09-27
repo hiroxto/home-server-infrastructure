@@ -123,7 +123,7 @@ services:
     volumes:
       - ./navidrome-music/data:/data
       - ./navidrome-music/extra:/extra:cached
-      - /music/:/music:ro
+      - /mnt/music/:/music:ro
 
 volumes:
   mysql-db:
