@@ -3,7 +3,7 @@
 #
 services:
   mirakurun:
-    image: ghcr.io/hiroxto/mirakurun:latest@sha256:7be9dd5558cd4568379729784a15042aef8b724f82ec76387075360b9ce979c7
+    image: ghcr.io/hiroxto/mirakurun:latest@sha256:1119096ecc37d107063590a99792dd0e001d5703af832134d3585bb3e657d34c
     cap_add:
       - SYS_ADMIN
       - SYS_NICE
