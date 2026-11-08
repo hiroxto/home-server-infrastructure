@@ -5,8 +5,8 @@
   ],
   "packageRules": [
     {
-      "matchPackagePrefixes": [
-        "ghcr.io/hiroxto/"
+      "matchPackageNames": [
+        "ghcr.io/hiroxto/{/,}**"
       ],
       "matchDatasources": [
         "docker"
