@@ -12,7 +12,7 @@
 Docker Compose と [mise](https://mise.jdx.dev/) が必要です。
 
 - `mise tasks`: 利用可能なタスクを表示する
-- `mise run init`: 環境設定を作成し、イメージを取得・ビルドする
+- `mise run init`: イメージを取得・ビルドする
 - `mise run build`: Docker イメージをビルドする
 - `mise run up`: 全サービスをバックグラウンドで起動する
 - `mise run ps`: コンテナの状態を確認する
