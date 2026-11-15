@@ -9,24 +9,24 @@
 
 ## ビルド・検証・開発コマンド
 
-Docker Compose と [Task](https://taskfile.dev/) が必要です。
+Docker Compose と [mise](https://mise.jdx.dev/) が必要です。
 
-- `task --list`: 利用可能なタスクを表示する
-- `task init`: 環境設定を作成し、イメージを取得・ビルドする
-- `task build`: Docker イメージをビルドする
-- `task up`: 全サービスをバックグラウンドで起動する
-- `task ps`: コンテナの状態を確認する
-- `task logs`: 指定サービスのログを追跡する
-- `task down`: Compose スタックを停止・削除する
+- `mise tasks`: 利用可能なタスクを表示する
+- `mise run init`: イメージを取得・ビルドする
+- `mise run build`: Docker イメージをビルドする
+- `mise run up`: 全サービスをバックグラウンドで起動する
+- `mise run ps`: コンテナの状態を確認する
+- `mise run logs`: 指定サービスのログを追跡する
+- `mise run down`: Compose スタックを停止・削除する
 - `docker compose config --quiet`: `compose.yaml` の構文と構成を検証する
 
-`task`コマンドの後ろに`--`で引数を指定できます。
-- 例: `task logs -- nginx`: Nginxコンテナのログを確認する
+`mise run <タスク名>`の後ろに引数を指定すると、実行するコマンドの末尾に追加されます。
+- 例: `mise run logs nginx`: Nginxコンテナのログを確認する
 
 ## テスト方針
 
 ユニットテストは存在しません。
-ホスト側のデバイスとマウント先を利用できる環境では、`task up` と `task ps` で起動状態を確認してください。
+ホスト側のデバイスとマウント先を利用できる環境では、`mise run up` と `mise run ps` で起動状態を確認してください。
 `compose.yaml`は本番環境向けのデバイスをハードコーディングしているため`/dev/px4video*` や `/mnt/dtv` が開発環境に存在するとは限りません。
 
 安全に検証可能なテスト
