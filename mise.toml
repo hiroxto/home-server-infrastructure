@@ -1,0 +1,92 @@
+[tasks.help]
+description = "ヘルプを表示する"
+alias = "default"
+run = "mise tasks"
+
+#
+# 初期化系
+#
+[tasks.init]
+description = "Dockerコンテナを初期設定する"
+run = [{ task = "pull" }, { task = "build" }]
+
+#
+# コンテナ操作系
+#
+[tasks.build]
+description = "Dockerイメージをビルドする"
+run = "docker compose build"
+
+[tasks.pull]
+description = "Dockerイメージを取得ビルドする"
+run = "docker compose pull"
+
+[tasks.ps]
+description = "Dockerコンテナの状態を表示する"
+run = "docker compose ps"
+
+[tasks.up]
+description = "Dockerコンテナを起動する"
+run = "docker compose up -d"
+
+[tasks.down]
+description = "Dockerコンテナを停止する"
+run = "docker compose down"
+
+[tasks.restart]
+description = "Dockerコンテナを再起動する"
+run = "docker compose restart"
+
+[tasks.log]
+description = "Dockerコンテナのログを表示する"
+run = "docker compose logs"
+
+[tasks.logs]
+description = "Dockerコンテナのログを表示する (-fオプション付き)"
+run = "docker compose logs -f"
+
+[tasks."epgstation:sh"]
+description = "EPGStationのコンテナのシェルに入る"
+run = "docker compose exec epgstation sh"
+
+[tasks."mirakurun:sh"]
+description = "Mirakurunのコンテナのシェルに入る"
+run = "docker compose exec mirakurun sh"
+
+[tasks."nginx:sh"]
+description = "Nginxのコンテナのシェルに入る"
+run = "docker compose exec nginx sh"
+
+[tasks.mysql]
+description = "MySQLにログイン"
+run = "docker compose exec mysql mysql -u epgstation_user -pepgstation_passwd epgstation"
+
+#
+# バックアップ系
+#
+[tasks.backup]
+description = "各サービスをバックアップする"
+run = [{ task = "backup:epgstation" }, { task = "backup:mirakurun" }]
+
+[tasks."backup:epgstation"]
+description = "EPGStationをバックアップする"
+run = '''
+BACKUP_DATE=$(date '+%Y-%m-%d_%H%M')
+HOST_BACKUP_DIR="/mnt/dtv/backup/epgstation/${BACKUP_DATE}"
+CONTAINER_BACKUP_DIR="/backup/${BACKUP_DATE}"
+mkdir -p "${HOST_BACKUP_DIR}"
+docker compose run --rm -it epgstation run backup "${CONTAINER_BACKUP_DIR}/epgstation-db.json"
+cp -a epgstation/config "${HOST_BACKUP_DIR}/"
+cp -a epgstation/extra "${HOST_BACKUP_DIR}/"
+'''
+
+[tasks."backup:mirakurun"]
+description = "Mirakurunをバックアップする"
+run = '''
+BACKUP_DATE=$(date '+%Y-%m-%d_%H%M')
+HOST_BACKUP_DIR="/mnt/dtv/backup/mirakurun/${BACKUP_DATE}"
+mkdir -p "${HOST_BACKUP_DIR}"
+cp -a mirakurun/data "${HOST_BACKUP_DIR}/"
+cp -a mirakurun/conf "${HOST_BACKUP_DIR}/"
+cp -a mirakurun/extra "${HOST_BACKUP_DIR}/"
+'''
