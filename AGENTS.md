@@ -33,14 +33,6 @@ Docker Compose と [mise](https://mise.jdx.dev/) が必要である。
 - `docker compose config --quiet`: `compose.yaml` の構文を検証する
 - `docker compose pull --dry-run`: イメージを変更した場合に実施する
 
-## コミットとプルリクエスト
-
-- 1 つのコミットでは 1 つの意図に絞る。
-- コミットメッセージのプレフィックスには `feat:`、`fix:`、`delete:`、`docs:`、`ci:` のような短い Conventional Commits 形式を使用する。
-- コミットメッセージは何を変更するかを日本語で簡潔に書く。
-- コミット前に差分を確認し、実際の変更内容に沿ったメッセージにする。
-- PR 作成時は `.github/pull_request_template.md` の構成に従い、テンプレートの見出しを維持して本文を埋める。
-
 ## 関連リポジトリ
 
 - [hiroxto/infrastructure](https://github.com/hiroxto/infrastructure): 自宅サーバー、ドメイン、Cloudflare などを Terraform で管理する。
